@@ -1,0 +1,238 @@
+##header edit
+[
+  {
+    "op": "core/column-rename",
+    "description": "Rename column __anonymous__ - svSeznam to Hledanost - Seznam",
+    "oldColumnName": "__anonymous__ - svSeznam",
+    "newColumnName": "Hledanost - Seznam"
+  },
+  {
+    "op": "core/column-rename",
+    "description": "Rename column __anonymous__ - keyword to KW",
+    "oldColumnName": "__anonymous__ - keyword",
+    "newColumnName": "KW"
+  },
+  {
+    "op": "core/column-rename",
+    "description": "Rename column __anonymous__ - svGoogle to Hledanost - Google",
+    "oldColumnName": "__anonymous__ - svGoogle",
+    "newColumnName": "Hledanost - Google"
+  },
+  {
+    "op": "core/column-rename",
+    "description": "Rename column __anonymous__ - svGoogleLocal to Hledanost - Google (průměr)",
+    "oldColumnName": "__anonymous__ - svGoogleLocal",
+    "newColumnName": "Hledanost - Google (průměr)"
+  },
+  {
+    "op": "core/column-rename",
+    "description": "Rename column __anonymous__ - serpResults - __anonymous__ - url to URL",
+    "oldColumnName": "__anonymous__ - serpResults - __anonymous__ - url",
+    "newColumnName": "URL"
+  },
+  {
+    "op": "core/column-removal",
+    "description": "Remove column __anonymous__ - serpResults - __anonymous__ - path",
+    "columnName": "__anonymous__ - serpResults - __anonymous__ - path"
+  },
+  {
+    "op": "core/column-rename",
+    "description": "Rename column __anonymous__ - serpResults - __anonymous__ - position to Pozice",
+    "oldColumnName": "__anonymous__ - serpResults - __anonymous__ - position",
+    "newColumnName": "Pozice"
+  },
+  {
+    "op": "core/column-removal",
+    "description": "Remove column __anonymous__ - serpResults - __anonymous__ - hostname",
+    "columnName": "__anonymous__ - serpResults - __anonymous__ - hostname"
+  },
+  {
+    "op": "core/column-removal",
+    "description": "Remove column __anonymous__ - positions - __anonymous__ - date",
+    "columnName": "__anonymous__ - positions - __anonymous__ - date"
+  },
+  {
+    "op": "core/column-removal",
+    "description": "Remove column __anonymous__ - positions - __anonymous__ - snippetBody",
+    "columnName": "__anonymous__ - positions - __anonymous__ - snippetBody"
+  },
+  {
+    "op": "core/column-removal",
+    "description": "Remove column __anonymous__ - positions - __anonymous__ - snippetTitle",
+    "columnName": "__anonymous__ - positions - __anonymous__ - snippetTitle"
+  },
+  {
+    "op": "core/column-removal",
+    "description": "Remove column __anonymous__ - positions - __anonymous__ - position",
+    "columnName": "__anonymous__ - positions - __anonymous__ - position"
+  },
+  {
+    "op": "core/column-removal",
+    "description": "Remove column __anonymous__ - positions - __anonymous__ - targetPageUrl",
+    "columnName": "__anonymous__ - positions - __anonymous__ - targetPageUrl"
+  },
+  {
+    "op": "core/column-rename",
+    "description": "Rename column __anonymous__ - positions - __anonymous__ - totalNumberOfResults to Počet výsledků ve vyhledávání",
+    "oldColumnName": "__anonymous__ - positions - __anonymous__ - totalNumberOfResults",
+    "newColumnName": "Počet výsledků ve vyhledávání"
+  },
+  {
+    "op": "core/column-rename",
+    "description": "Rename column __anonymous__ - serpResults - __anonymous__ - searchEngineId to SERP",
+    "oldColumnName": "__anonymous__ - serpResults - __anonymous__ - searchEngineId",
+    "newColumnName": "SERP"
+  },
+  {
+    "op": "core/column-rename",
+    "description": "Rename column __anonymous__ - positions - __anonymous__ - searchEngineId to Vyhledávač (počet výsledků)",
+    "oldColumnName": "__anonymous__ - positions - __anonymous__ - searchEngineId",
+    "newColumnName": "Vyhledávač (počet výsledků)"
+  },
+  {
+    "op": "core/column-removal",
+    "description": "Remove column __anonymous__ - projectKeywordId",
+    "columnName": "__anonymous__ - projectKeywordId"
+  },
+  {
+    "op": "core/text-transform",
+    "description": "Text transform on cells in column SERP using expression value.toNumber()",
+    "engineConfig": {
+      "facets": [
+        {
+          "invert": false,
+          "expression": "value",
+          "selectError": false,
+          "omitError": false,
+          "selectBlank": false,
+          "name": "SERP",
+          "omitBlank": false,
+          "columnName": "SERP",
+          "type": "list",
+          "selection": [
+            {
+              "v": {
+                "v": 1,
+                "l": "1"
+              }
+            }
+          ]
+        }
+      ],
+      "mode": "record-based"
+    },
+    "columnName": "SERP",
+    "expression": "value.toNumber()",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10
+  },
+  {
+    "op": "core/text-transform",
+    "description": "Text transform on cells in column SERP using expression grel:value.replace(\"1\",\"Google\")",
+    "engineConfig": {
+      "facets": [
+        {
+          "invert": false,
+          "expression": "value",
+          "selectError": false,
+          "omitError": false,
+          "selectBlank": false,
+          "name": "SERP",
+          "omitBlank": false,
+          "columnName": "SERP",
+          "type": "list",
+          "selection": [
+            {
+              "v": {
+                "v": 1,
+                "l": "1"
+              }
+            }
+          ]
+        }
+      ],
+      "mode": "record-based"
+    },
+    "columnName": "SERP",
+    "expression": "grel:value.replace(\"1\",\"Google\")",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10
+  },
+  {
+    "op": "core/text-transform",
+    "description": "Text transform on cells in column SERP using expression grel:value.replace(\"2\",\"Seznam\")",
+    "engineConfig": {
+      "facets": [],
+      "mode": "record-based"
+    },
+    "columnName": "SERP",
+    "expression": "grel:value.replace(\"2\",\"Seznam\")",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10
+  },
+  {
+    "op": "core/text-transform",
+    "description": "Text transform on cells in column Vyhledávač (počet výsledků) using expression grel:value.replace(\"2\",\"Seznam\")",
+    "engineConfig": {
+      "facets": [],
+      "mode": "record-based"
+    },
+    "columnName": "Vyhledávač (počet výsledků)",
+    "expression": "grel:value.replace(\"2\",\"Seznam\")",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10
+  },
+  {
+    "op": "core/text-transform",
+    "description": "Text transform on cells in column Vyhledávač (počet výsledků) using expression grel:value.replace(\"1\",\"Google\")",
+    "engineConfig": {
+      "facets": [],
+      "mode": "record-based"
+    },
+    "columnName": "Vyhledávač (počet výsledků)",
+    "expression": "grel:value.replace(\"1\",\"Google\")",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10
+  }
+]
+
+## add column domena
+
+[
+  {
+	"op": "core/column-addition",
+    "description": "Create column Domena at index 5 based on column URL using expression grel:value.split(\"/\" )[1]",
+    "engineConfig": {
+      "mode": "record-based",
+      "facets": []
+	},
+    "newColumnName": "Domena",
+    "columnInsertIndex": 5,
+    "baseColumnName": "URL",
+    "expression": "grel:value.split(\"/\" )[1]",
+    "onError": "set-to-blank"
+  },
+  {
+	"op": "core/text-transform",
+    "description": "Text transform on cells in column Domena using expression grel:value.replace(\"www.\",\"\")",
+    "engineConfig": {
+      "mode": "record-based",
+      "facets": []
+	},
+    "columnName": "Domena",
+    "expression": "grel:value.replace(\"www.\",\"\")",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10
+  }
+] 
+
+
+
+
+
